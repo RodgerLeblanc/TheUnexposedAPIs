@@ -158,7 +158,7 @@ Keep track of language used by the keyboard and the different settings from Sett
 
 
 
-NumericKeyboard
+NumericKeyboard (not done yet, coming soon...)
 Data source: virtualkeyboard.h BPS
 
 Get access to an undocumented input mode not available in TextFieldInputMode and TextAreInputMode.
