@@ -85,7 +85,7 @@ void PhysicalButtons::onPpsReadyRead() {
                 emit logMessage("-- minus button pressed --");
                 emit minusButtonPressed();
 
-                if (m_buttonIsUpMap["lastMinusPress"].toDateTime().secsTo(QDateTime::currentDateTime()) < DOUBLE_CLICK_INTERVAL) {
+                if (m_buttonIsUpMap["lastMinusPress"].toDateTime().msecsTo(QDateTime::currentDateTime()) < DOUBLE_CLICK_INTERVAL) {
                     emit logMessage("-- minus button double pressed --");
                     emit minusButtonDoublePressed();
 
@@ -115,7 +115,7 @@ void PhysicalButtons::onPpsReadyRead() {
                 emit logMessage("-- playpause button pressed --");
                 emit playpauseButtonPressed();
 
-                if (m_buttonIsUpMap["lastPlaypausePress"].toDateTime().secsTo(QDateTime::currentDateTime()) < DOUBLE_CLICK_INTERVAL) {
+                if (m_buttonIsUpMap["lastPlaypausePress"].toDateTime().msecsTo(QDateTime::currentDateTime()) < DOUBLE_CLICK_INTERVAL) {
                     emit logMessage("-- playpause button double pressed --");
                     emit playpauseButtonDoublePressed();
 
@@ -145,7 +145,7 @@ void PhysicalButtons::onPpsReadyRead() {
                 emit logMessage("-- plus button pressed --");
                 emit plusButtonPressed();
 
-                if (m_buttonIsUpMap["lastPlusPress"].toDateTime().secsTo(QDateTime::currentDateTime()) < DOUBLE_CLICK_INTERVAL) {
+                if (m_buttonIsUpMap["lastPlusPress"].toDateTime().msecsTo(QDateTime::currentDateTime()) < DOUBLE_CLICK_INTERVAL) {
                     emit logMessage("-- plus button double pressed --");
                     emit plusButtonDoublePressed();
 
@@ -175,7 +175,7 @@ void PhysicalButtons::onPpsReadyRead() {
                 emit logMessage("-- power button pressed --");
                 emit powerButtonPressed();
 
-                if (m_buttonIsUpMap["lastPowerPress"].toDateTime().secsTo(QDateTime::currentDateTime()) < DOUBLE_CLICK_INTERVAL) {
+                if (m_buttonIsUpMap["lastPowerPress"].toDateTime().msecsTo(QDateTime::currentDateTime()) < DOUBLE_CLICK_INTERVAL) {
                     emit logMessage("-- power button double pressed --");
                     emit powerButtonDoublePressed();
 
