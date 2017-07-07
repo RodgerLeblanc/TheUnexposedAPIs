@@ -16,8 +16,9 @@ BluetoothWatcher::BluetoothWatcher(QObject *_parent) :
 
 void BluetoothWatcher::onPpsFileReady(const QVariantMap& map) {
     if (map.contains("activity_state")) {
-        bool connected = (map["activity_state"].toInt() == 16);
-        bool deviceWasAlreadyConnected = m_connectedDevices.contains(map["_ppsMapTitle"].toString().remove("@"));
+        // 8: disconnected, 24: connected
+        const bool connected = (map["activity_state"].toInt() == 24);
+        const bool deviceWasAlreadyConnected = m_connectedDevices.contains(map["_ppsMapTitle"].toString().remove("@"));
 
         if (connected != deviceWasAlreadyConnected) {
             if (connected) {
