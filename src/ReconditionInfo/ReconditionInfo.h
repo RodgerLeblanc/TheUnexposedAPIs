@@ -19,12 +19,12 @@ class ReconditionInfo : public QObject
 public:
     ReconditionInfo(QObject *_parent = 0);
 
+    bool isReconditioned() { return m_isReconditioned; }
+
 private slots:
     void onPpsFileReady(const QVariantMap&);
 
 private:
-    bool isReconditioned() { return m_isReconditioned; }
-
     bool m_isReconditioned;
 
     PpsWatch* m_reconditionInfo;

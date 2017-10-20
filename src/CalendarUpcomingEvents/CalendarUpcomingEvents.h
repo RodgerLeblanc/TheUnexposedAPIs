@@ -21,14 +21,14 @@ class CalendarUpcomingEvents : public QObject
 public:
     CalendarUpcomingEvents(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     QVariantList allNextEvents() { return m_allNextEvents; }
     QVariantMap nextEvent() { return m_nextEvent; }
     QString nextEventString() { return m_nextEventString; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     QString getEventString(const QVariantMap& event);
 
     QVariantList m_allNextEvents;

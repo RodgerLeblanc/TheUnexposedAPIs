@@ -26,10 +26,6 @@ class DeviceProperties : public QObject
 public:
     DeviceProperties(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     QString defaultTheme() { return m_defaultTheme; }
     int du() { return m_du; }
     QString modelName() { return m_modelName; }
@@ -39,6 +35,10 @@ private:
     QString screenDpi() { return m_screenDpi; }
     QString screenResolution() { return m_screenResolution; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     QString m_defaultTheme;
     int m_du;
     QString m_modelName;

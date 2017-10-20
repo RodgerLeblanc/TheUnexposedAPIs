@@ -23,15 +23,15 @@ class AndroidStatus : public QObject
 public:
     AndroidStatus(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     bool fullscreen() { return m_fullscreen; }
     bool keyboardShown() { return m_keyboardShown; }
     int keyboardSize() { return m_keyboardSize; }
     QString state() { return m_state; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     bool m_fullscreen;
     bool m_keyboardShown;
     int m_keyboardSize;

@@ -19,12 +19,12 @@ class FontSettings : public QObject
 public:
     FontSettings(QObject *_parent = 0);
 
+    int fontSize() { return m_fontSize; }
+
 private slots:
     void onPpsFileReady(const QVariantMap&);
 
 private:
-    int fontSize() { return m_fontSize; }
-
     int m_fontSize;
 
     PpsWatch* m_fontSettings;

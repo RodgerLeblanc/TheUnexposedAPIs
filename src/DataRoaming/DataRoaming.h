@@ -21,14 +21,14 @@ class DataRoaming : public QObject
 public:
     DataRoaming(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     QString dataRoamingMode() { return m_dataRoamingMode; }
     QString dataRoamingModeLevel() { return m_dataRoamingModeLevel; }
     bool dataServiceMode() { return m_dataServiceMode; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     QString m_dataRoamingMode;
     QString m_dataRoamingModeLevel;
     bool m_dataServiceMode;

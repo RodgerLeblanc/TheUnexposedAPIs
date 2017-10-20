@@ -41,10 +41,6 @@ class HardwareInventory : public QObject
 public:
     HardwareInventory(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     QString boardRev() { return m_boardRev; }
     QString boardType() { return m_boardType; }
     QString cameraFrontId() { return m_cameraFrontId; }
@@ -69,6 +65,10 @@ private:
     QString sdramSize() { return m_sdramSize; }
     QString sdramVendor() { return m_sdramVendor; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     QString m_boardRev;
     QString m_boardType;
     QString m_cameraFrontId;

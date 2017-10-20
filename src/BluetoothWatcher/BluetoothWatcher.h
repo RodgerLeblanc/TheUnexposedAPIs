@@ -21,12 +21,12 @@ class BluetoothWatcher : public QObject
 public:
     BluetoothWatcher(QObject *_parent = 0);
 
+    QStringList connectedDevices() { return m_connectedDevices; }
+
 private slots:
     void onPpsFileReady(const QVariantMap&);
 
 private:
-    QStringList connectedDevices() { return m_connectedDevices; }
-
     QStringList m_connectedDevices;
 
     PpsWatch* m_bluetoothWatcher;

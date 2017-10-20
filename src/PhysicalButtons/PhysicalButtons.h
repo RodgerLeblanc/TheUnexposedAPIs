@@ -28,6 +28,11 @@ public:
     PhysicalButtons(QObject *_parent = 0);
     virtual ~PhysicalButtons();
 
+    bool minusButtonIsUp() { return m_minusButtonIsUp; }
+    bool playpauseButtonIsUp() { return m_playpauseButtonIsUp; }
+    bool plusButtonIsUp() { return m_plusButtonIsUp; }
+    bool powerButtonIsUp() { return m_powerButtonIsUp; }
+
 private slots:
     void onPpsReadyRead();
     void onMinusButtonTimeout();
@@ -37,11 +42,6 @@ private slots:
     void onSoftResetButtonsTimeout();
 
 private:
-    bool minusButtonIsUp() { return m_minusButtonIsUp; }
-    bool playpauseButtonIsUp() { return m_playpauseButtonIsUp; }
-    bool plusButtonIsUp() { return m_plusButtonIsUp; }
-    bool powerButtonIsUp() { return m_powerButtonIsUp; }
-
     bool m_minusButtonIsUp;
     bool m_playpauseButtonIsUp;
     bool m_plusButtonIsUp;

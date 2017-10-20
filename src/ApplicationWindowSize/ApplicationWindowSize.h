@@ -22,12 +22,12 @@ class ApplicationWindowSize : public QObject
 public:
     ApplicationWindowSize(QObject *_parent = 0);
 
-private:
     int width() { return m_width; }
     int height() { return m_height; }
     int coverWidth() { return m_coverWidth; }
     int coverHeight() { return m_coverHeight; }
 
+private:
     int m_width;
     int m_height;
     int m_coverWidth;

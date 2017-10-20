@@ -21,14 +21,14 @@ class TimeZone : public QObject
 public:
     TimeZone(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     bool autoUpdateTimeZone() { return m_autoUpdateTimeZone; }
     QString lastZoneDetected() { return m_lastZoneDetected; }
     bool setTimeAutomatically() { return m_setTimeAutomatically; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     bool m_autoUpdateTimeZone;
     QString m_lastZoneDetected;
     bool m_setTimeAutomatically;

@@ -19,12 +19,12 @@ class CountryCode : public QObject
 public:
     CountryCode(QObject *_parent = 0);
 
+    QString countryCode() { return m_countryCode; }
+
 private slots:
     void onPpsFileReady(const QVariantMap&);
 
 private:
-    QString countryCode() { return m_countryCode; }
-
     QString m_countryCode;
 
     PpsWatch* m_countryCodePps;

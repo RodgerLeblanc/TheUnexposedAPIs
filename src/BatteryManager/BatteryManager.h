@@ -78,10 +78,6 @@ class BatteryManager : public QObject
 public:
     BatteryManager(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     // BatteryInfo
     int activeBattery() { return m_activeBattery; }
     int availableEnergy() { return m_availableEnergy; }
@@ -140,6 +136,10 @@ private:
     // Custom Property
     double mAhConsumedNow() { return m_mAhConsumedNow; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     // BatteryInfo
     int m_activeBattery;
     int m_availableEnergy;
