@@ -30,10 +30,6 @@ class SystemSettings : public QObject
 public:
     SystemSettings(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     bool allowAlternateAppSource() { return m_allowAlternateAppSource; }
     bool autoHideActionBar() { return m_autoHideActionBar; }
     bool bypassScreenlock() { return m_bypassScreenlock; }
@@ -47,6 +43,10 @@ private:
     bool swipeToWakeup() { return m_swipeToWakeup; }
     QString tzDatabaseId() { return m_tzDatabaseId; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     bool m_allowAlternateAppSource;
     bool m_autoHideActionBar;
     bool m_bypassScreenlock;

@@ -19,12 +19,12 @@ class PaymentMethod : public QObject
 public:
     PaymentMethod(QObject *_parent = 0);
 
+    QString currentPaymentMethod() { return m_currentPaymentMethod; }
+
 private slots:
     void onPpsFileReady(const QVariantMap&);
 
 private:
-    QString currentPaymentMethod() { return m_currentPaymentMethod; }
-
     QString m_currentPaymentMethod;
 
     PpsWatch* m_paymentMethod;

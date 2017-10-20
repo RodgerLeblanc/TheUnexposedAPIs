@@ -26,16 +26,16 @@ class HubWatch : public QObject
 public:
     HubWatch(QObject *_parent = 0);
 
-private slots:
-    void onDelayTimeout();
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     QVariantMap lastPimUpdated() { return m_lastPimUpdated; }
     QString newPimMessage_accountName() { return m_newPimMessage_accountName; }
     bool newPimMessage_splatShown() { return m_newPimMessage_splatShown; }
     int newPimMessage_unreadCount() { return m_newPimMessage_unreadCount; }
 
+private slots:
+    void onDelayTimeout();
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     QString getMapString(const QVariantMap& map);
 
     QVariantMap m_lastPimUpdated;

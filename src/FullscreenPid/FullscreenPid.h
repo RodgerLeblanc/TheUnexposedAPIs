@@ -21,14 +21,14 @@ class FullscreenPid : public QObject
 public:
     FullscreenPid(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     QString doNotTrustThisValueCurrWindow() { return m_doNotTrustThisValueCurrWindow; }
     int fullscreenPid() { return m_fullscreenPid; }
     bool isOnHomescreen() { return m_isOnHomescreen; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     QString m_doNotTrustThisValueCurrWindow;
     int m_fullscreenPid;
     bool m_isOnHomescreen;

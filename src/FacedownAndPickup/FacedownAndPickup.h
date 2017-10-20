@@ -29,10 +29,6 @@ class FacedownAndPickup : public QObject
 public:
     FacedownAndPickup(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     bool facedownEnabled() { return m_facedownEnabled; }
     bool pickupEnabled() { return m_pickupEnabled; }
     int awakeFromFacedown() { return m_awakeFromFacedown; }
@@ -45,6 +41,10 @@ private:
     int standbyByFacedownToday() { return m_standbyByFacedownToday; }
     bool inHand() { return m_inHand; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     bool m_facedownEnabled;
     bool m_pickupEnabled;
     int m_awakeFromFacedown;

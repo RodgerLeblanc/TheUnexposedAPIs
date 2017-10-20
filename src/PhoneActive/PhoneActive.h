@@ -22,15 +22,15 @@ class PhoneActive : public QObject
 public:
     PhoneActive(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     int areaCode() { return m_areaCode; }
     int countryCode() { return m_countryCode; }
     bool phoneActive() { return m_phoneActive; }
     QString phoneState() { return m_phoneState; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     int m_areaCode;
     int m_countryCode;
     bool m_phoneActive;

@@ -27,6 +27,10 @@ public:
     Q_INVOKABLE void setDisplayBrightness(const double& brightness);
     Q_INVOKABLE void setKeypadBrightness(const double& brightness);
 
+    double displayCurrentBrightness() { return m_displayCurrentBrightness; }
+    double keypadCurrentBrightness() { return m_keypadCurrentBrightness; }
+    void start(const QString& cmd, const QString& args);
+
 private slots:
     void onDisplayPpsFileReady(const QVariantMap&);
     void onFinished(int exitCode, QProcess::ExitStatus exitStatus);
@@ -34,10 +38,6 @@ private slots:
     void setback();
 
 private:
-    double displayCurrentBrightness() { return m_displayCurrentBrightness; }
-    double keypadCurrentBrightness() { return m_keypadCurrentBrightness; }
-    void start(const QString& cmd, const QString& args);
-
     double m_displayCurrentBrightness;
     double m_keypadCurrentBrightness;
     double m_setbackValue;

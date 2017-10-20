@@ -25,10 +25,6 @@ class ProgressStatus : public QObject
 public:
     ProgressStatus(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     QString app() { return m_app; }
     int endValue() { return m_endValue; }
     QString error() { return m_error; }
@@ -37,6 +33,10 @@ private:
     int currentValue() { return m_currentValue; }
     QString units() { return m_units; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     QString m_app;
     int m_currentValue;
     int m_endValue;

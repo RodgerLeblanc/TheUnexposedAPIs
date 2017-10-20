@@ -27,10 +27,6 @@ class RadioManager : public QObject
 public:
     RadioManager(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     bool airplaneModeEnabled() { return m_airplaneModeEnabled; }
     bool bedsideModeEnabled() { return m_bedsideModeEnabled; }
     bool bluetoothEnabled() { return m_bluetoothEnabled; }
@@ -41,6 +37,10 @@ private:
     bool nfcEnabled() { return m_nfcEnabled; }
     bool wifiEnabled() { return m_wifiEnabled; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     bool m_airplaneModeEnabled;
     bool m_bedsideModeEnabled;
     bool m_bluetoothEnabled;

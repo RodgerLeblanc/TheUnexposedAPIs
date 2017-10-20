@@ -35,13 +35,6 @@ class FileSystem : public QObject
 public:
     FileSystem(QObject *_parent = 0);
 
-private slots:
-    void onBoxDrivePpsFileReady(const QVariantMap&);
-    void onDropboxDrivePpsFileReady(const QVariantMap&);
-    void onLocalDrivePpsFileReady(const QVariantMap&);
-    void onSdDrivePpsFileReady(const QVariantMap&);
-
-private:
     int boxCapacity() { return m_boxCapacity; }
     int boxFreespace() { return m_boxFreespace; }
     bool boxOnline() { return m_boxOnline; }
@@ -60,6 +53,13 @@ private:
     int sdFreespace() { return m_sdFreespace; }
     bool sdOnline() { return m_sdOnline; }
 
+private slots:
+    void onBoxDrivePpsFileReady(const QVariantMap&);
+    void onDropboxDrivePpsFileReady(const QVariantMap&);
+    void onLocalDrivePpsFileReady(const QVariantMap&);
+    void onSdDrivePpsFileReady(const QVariantMap&);
+
+private:
     int m_boxCapacity;
     int m_boxFreespace;
     bool m_boxOnline;

@@ -25,10 +25,6 @@ class WifiWatcher : public QObject
 public:
     WifiWatcher(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     bool lanTetherPowerEnabled() { return m_lanTetherPowerEnabled; }
     QString lanTetherState() { return m_lanTetherState; }
     QVariantList scanResults() { return m_scanResults; }
@@ -37,6 +33,10 @@ private:
     QString connectionSsid() { return m_connectionSsid; }
     QString connectionBssid() { return m_connectionBssid; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     bool m_lanTetherPowerEnabled;
     QString m_lanTetherState;
     QVariantList m_scanResults;

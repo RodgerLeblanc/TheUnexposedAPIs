@@ -44,10 +44,6 @@ class LanguageAndInput : public QObject
 public:
     LanguageAndInput(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     bool vibrateOnCorrect() { return m_vibrateOnCorrect; }
     bool autoCapitalize() { return m_autoCapitalize; }
     bool autoComma() { return m_autoComma; }
@@ -73,6 +69,10 @@ private:
     bool spellCheckIgnoreWordsWithDigits() { return m_spellCheckIgnoreWordsWithDigits; }
     bool touchKeypadAvailable() { return m_touchKeypadAvailable; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     bool m_vibrateOnCorrect;
     bool m_autoCapitalize;
     bool m_autoComma;

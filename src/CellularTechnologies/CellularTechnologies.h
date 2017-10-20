@@ -33,10 +33,6 @@ class CellularTechnologies : public QObject
 public:
     CellularTechnologies(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     QString cellSearchStatus() { return m_cellSearchStatus; }
     QStringList configuredTechnologies() { return m_configuredTechnologies; }
     QString connectionState() { return m_connectionState; }
@@ -51,6 +47,10 @@ private:
     int signalStrengthRssi() { return m_signalStrengthRssi; }
     QString technologyIndicator() { return m_technologyIndicator; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     QString m_cellSearchStatus;
     QStringList m_configuredTechnologies;
     QString m_connectionState;

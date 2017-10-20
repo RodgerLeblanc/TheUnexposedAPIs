@@ -30,10 +30,6 @@ class DebugToken : public QObject
 public:
     DebugToken(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     QString author() { return m_author; }
     bool devModeEnabled() { return m_devModeEnabled; }
     QString devModeExpiration() { return m_devModeExpiration; }
@@ -45,6 +41,10 @@ private:
     QString validationError() { return m_validationError; }
     int validationErrorCode() { return m_validationErrorCode; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     QString m_author;
     bool m_devModeEnabled;
     QString m_devModeExpiration;

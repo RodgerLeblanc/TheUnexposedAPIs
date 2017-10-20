@@ -27,10 +27,6 @@ class BatterySavingMode : public QObject
 public:
     BatterySavingMode(QObject *_parent = 0);
 
-private slots:
-    void onPpsFileReady(const QVariantMap&);
-
-private:
     bool active() { return m_active; }
     bool limitCpuPerformance() { return m_limitCpuPerformance; }
     int screenTimeout() { return m_screenTimeout; }
@@ -41,6 +37,10 @@ private:
     bool turnOnBatterySavingModeAutomaticallyOption() { return m_turnOnBatterySavingModeAutomaticallyOption; }
     int userThreshold() { return m_userThreshold; }
 
+private slots:
+    void onPpsFileReady(const QVariantMap&);
+
+private:
     bool m_active;
     bool m_limitCpuPerformance;
     int m_screenTimeout;
