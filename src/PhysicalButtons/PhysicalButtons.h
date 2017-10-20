@@ -78,6 +78,7 @@ signals:
     void powerButtonLongPressed();
     void powerButtonPressed();
     void screenshotButtonsPressed();
+    void screenshotButtonsDoublePressed();
     void softResetButtonsLongPressed();
 };
 

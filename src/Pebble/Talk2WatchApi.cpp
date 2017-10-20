@@ -9,12 +9,17 @@
  *
  * Thanks to Benjamin Sliwa for this great API.
  *
- * You'll need to add QT += network to your pro file
+ * If your app isn't headless, you'll need to add this to your pro file:
+ * QT += network
+ *
+ * If your app is headless, you'll need to add this to your pro file:
+ * QT += declarative network sql
+ *
  *
  */
 
 
-#include "src/Pebble/Talk2WatchApi.h"
+#include <src/Pebble/Talk2WatchApi.h>
 
 #include <QDebug>
 
@@ -61,6 +66,12 @@ void Talk2WatchApi::sendFacebookMessage(const QString &_text, const QString &_se
 void Talk2WatchApi::sendSms(const QString &_text, const QString &_sender)
 {
     sendEvent("SMS", "NOTIFICATIONS", QStringList() << "text" << "sender" << "id" << "force", QVariantList() << _text << _sender << "" << 1);
+}
+
+void Talk2WatchApi::sendStandardNotification(const QString &_text, const QString &_sender)
+{
+    // A standard notification is sent as a SMS
+    this->sendSms(_text, _sender);
 }
 
 void Talk2WatchApi::sendTwitterMessage(const QString &_text, const QString &_sender)
