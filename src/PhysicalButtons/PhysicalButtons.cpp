@@ -51,6 +51,7 @@ PhysicalButtons::PhysicalButtons(QObject *_parent) {
     m_buttonIsUpMap.insert("lastPlaypausePress", QDateTime::currentDateTime().addDays(-1));
     m_buttonIsUpMap.insert("lastPlusPress", QDateTime::currentDateTime().addDays(-1));
     m_buttonIsUpMap.insert("lastPowerPress", QDateTime::currentDateTime().addDays(-1));
+    m_buttonIsUpMap.insert("lastScreenshotPress", QDateTime::currentDateTime().addDays(-1));
 }
 
 PhysicalButtons::~PhysicalButtons()
@@ -194,6 +195,17 @@ void PhysicalButtons::onPpsReadyRead() {
     if (!m_minusButtonIsUp && !m_plusButtonIsUp) {
         emit logMessage("-- screenshot buttons pressed --");
         emit screenshotButtonsPressed();
+
+        if (m_buttonIsUpMap["lastScreenshotPress"].toDateTime().msecsTo(QDateTime::currentDateTime()) < DOUBLE_CLICK_INTERVAL) {
+            emit logMessage("-- screenshot buttons double pressed --");
+            emit screenshotButtonsDoublePressed();
+
+            // Reinit
+            m_buttonIsUpMap["lastScreenshotPress"] = QDateTime::currentDateTime().addDays(-1);
+        }
+        else {
+            m_buttonIsUpMap["lastScreenshotPress"] = QDateTime::currentDateTime();
+        }
 
         m_softResetButtonsTimer->start();
     }

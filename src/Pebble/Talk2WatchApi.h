@@ -24,6 +24,7 @@ public:
     Q_INVOKABLE void sendBbmMessage(const QString &_text, const QString &_sender);
     Q_INVOKABLE void sendEmail(const QString &_text, const QString &_subject, const QString &_sender);
     Q_INVOKABLE void sendFacebookMessage(const QString &_text, const QString &_sender);
+    Q_INVOKABLE void sendStandardNotification(const QString &_text, const QString &_sender);
     Q_INVOKABLE void sendSms(const QString &_text, const QString &_sender);
     Q_INVOKABLE void sendTwitterMessage(const QString &_text, const QString &_sender);
     Q_INVOKABLE void sendWhatsAppMessage(const QString &_text, const QString &_sender);

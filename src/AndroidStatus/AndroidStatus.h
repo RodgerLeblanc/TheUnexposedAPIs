@@ -9,6 +9,7 @@
 #define ANDROIDSTATUS_H_
 
 #include <src/PpsWatch/PpsWatch.h>
+#include <QObject>
 
 class AndroidStatus : public QObject
 {
